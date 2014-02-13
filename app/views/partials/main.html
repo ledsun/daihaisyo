@@ -1,21 +1,23 @@
 <div ng-include="'partials/navbar'"></div>
-
 <div class="jumbotron">
-  <h1>'Allo, 'Allo <span ng-show="currentUser">{{ currentUser.name }}</span>!</h1>
+  <h1>拝承！拝承！</h1>
+  <h1>{{ currentUserName }}様!</h1>
   <p class="lead">
-    <img src="images/yeoman.png" alt="I'm Yeoman"><br>
-    Always a pleasure scaffolding your apps.
+    <img src="images/hitachi-tree-300.png" alt="I'm Yeoman"><br>
+    謹んで承りたき議、何なりとお申し付けください。
   </p>
-  <p><a class="btn btn-lg btn-success" ng-href="#">Splendid!</a></p>
+  <p><input type="text" ng-model="content"/><a class="btn btn-lg btn-success" ng-click="doHaisyo()">拝承！</a></p>
 </div>
 
 <div class="row marketing">
-  <div ng-repeat="thing in awesomeThings">
-      <h4>{{thing.name}}</h4>
-      <p>{{thing.info}}</p>
+  <div ng-repeat="haisyo in haisyos">
+    <div class="haisyo">
+      <p>{{haisyo.user}}様</p>
+      <p>{{haisyo.content}} の件、拝承いたしました。</p>
+    </div>
   </div>
 </div>
 
 <div class="footer">
-  <p>♥ from the Yeoman team</p>
+  <p>これはジョークアプリケーションです。日立製作所様および<a href="http://daishonin.hatelabo.jp/" target="_blank">大承認</a>様とは一切関係がございません。</p>
 </div>

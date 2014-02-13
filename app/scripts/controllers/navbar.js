@@ -3,11 +3,8 @@
 angular.module('daihaisyoApp')
   .controller('NavbarCtrl', function ($scope, $location, Auth) {
     $scope.menu = [{
-      'title': 'Home',
+      'title': 'メインページ',
       'link': '/'
-    }, {
-      'title': 'Settings',
-      'link': '/settings'
     }];
     
     $scope.logout = function() {
