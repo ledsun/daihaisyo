@@ -6,7 +6,9 @@
     <img src="images/hitachi-tree-300.png" alt="I'm Yeoman"><br>
     謹んで承りたき議、何なりとお申し付けください。
   </p>
-  <p><input type="text" ng-model="content"/><a class="btn btn-lg btn-success" ng-click="doHaisyo()">拝承！</a></p>
+  <form ng-submit="doHaisyo()">
+    <input type="text" ng-model="content"/><a class="btn btn-lg btn-success" ng-click="doHaisyo()" href="#">拝承！</a>
+  </form>
 </div>
 
 <div class="row marketing">
@@ -18,7 +20,7 @@
   </div>
 </div>
 <p class="row">
-  <a class="pull-right btn btn-primary" ng-click="moreHaisyo()" ng-show="!hideMoreHaisyo">もっと拝承！</a>
+  <a class="pull-right btn btn-primary" ng-click="moreHaisyo()" ng-show="!hideMoreHaisyo" href="#">もっと拝承！</a>
   <div class="progress progress-striped active" ng-show="showLoading">
     <div class="progress-bar progress-bar-success" style="width: 40%"></div>
     <span class="pull-right text-success">拝承！</span>
