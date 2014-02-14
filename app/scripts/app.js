@@ -12,19 +12,6 @@ angular.module('daihaisyoApp', [
         templateUrl: 'partials/main',
         controller: 'MainCtrl'
       })
-      .when('/login', {
-        templateUrl: 'partials/login',
-        controller: 'LoginCtrl'
-      })
-      .when('/signup', {
-        templateUrl: 'partials/signup',
-        controller: 'SignupCtrl'
-      })
-      .when('/settings', {
-        templateUrl: 'partials/settings',
-        controller: 'SettingsCtrl',
-        authenticate: true
-      })
       .otherwise({
         redirectTo: '/'
       });
