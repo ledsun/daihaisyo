@@ -2,10 +2,6 @@
 
 angular.module('daihaisyoApp')
 	.controller('MainCtrl', function($scope, $http) {
-		$http.get('/api/awesomeThings').success(function(awesomeThings) {
-			$scope.awesomeThings = awesomeThings;
-		});
-
 		// ユーザ名を取得
 		$scope.currentUserName = $scope.currentUser ? $scope.currentUser.name : '名無し';
 
