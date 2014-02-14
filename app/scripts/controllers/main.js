@@ -5,11 +5,20 @@ angular.module('daihaisyoApp')
 		// ユーザ名を取得
 		$scope.currentUserName = $scope.currentUser ? $scope.currentUser.name : '名無し';
 
-		// 保存されている拝承を取得
-		$http.get('/api/haisyos').success(function(haisyos) {
+		// 最新の拝承を取得
+		$http.get('/api/haisyos/new').success(function(haisyos) {
 			$scope.haisyos = haisyos;
 		});
 
+		$scope.moreHaisyo = function() {
+			// すべての拝承を取得
+			$scope.hideMoreHaisyo = true;
+			$scope.showLoading = true;
+			$http.get('/api/haisyos/all').success(function(haisyos) {
+				$scope.haisyos = haisyos;
+				$scope.showLoading = false;
+			});
+		};
 
 		$scope.doHaisyo = function() {
 			if ($scope.content) {
