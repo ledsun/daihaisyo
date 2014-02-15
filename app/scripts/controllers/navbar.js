@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('daihaisyoApp')
-  .controller('NavbarCtrl', function ($scope, $location, Auth) {
+  .controller('NavbarCtrl', function ($scope, $location) {
     $scope.menu = [{
       'title': 'メインページ',
       'link': '/'

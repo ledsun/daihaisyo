@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('daihaisyoApp')
-  .factory('User', function ($resource) {
+  .factory('User', function($resource) {
     return $resource('/api/users/:id', {
       id: '@id'
     }, { //parameters default
@@ -12,8 +12,8 @@ angular.module('daihaisyoApp')
       get: {
         method: 'GET',
         params: {
-          id:'me'
+          id: 'me'
         }
       }
-	  });
+    });
   });
