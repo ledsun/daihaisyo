@@ -13,8 +13,8 @@ angular.module('daihaisyoApp')
 			$scope.hideMoreHaisyo = true;
 			$scope.showLoading = true;
 			Haisyo.all(function(haisyos) {
-				$scope.haisyos = haisyos;
 				$scope.showLoading = false;
+				$scope.haisyos = haisyos;
 			});
 		};
 

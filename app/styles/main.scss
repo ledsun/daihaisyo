@@ -97,4 +97,19 @@ body {
     float: left;
     margin: 3px;
     padding: 8px 8px 0 8px;
+
+}
+
+.haisyo-list {
+  &.ng-enter {
+    left: -100px;
+    opacity: 0;
+    position: relative;
+    -webkit-transition: 1s linear all; /* Chrome */
+    transition: 1s linear all;
+  }
+  &.ng-enter-active {
+    left: 0;
+    opacity: 1;
+  }
 }
