@@ -14,7 +14,7 @@
   <div class="haisyo-list" ng-repeat="haisyo in haisyos">
     <div class="haisyo">
       <p>{{haisyo.user}}様</p>
-      <p>{{haisyo.content}} の件、拝承いたしました。</p>
+      <p>{{haisyo.content | limitTo:1600 }} の件、拝承いたしました。</p>
     </div>
   </div>
 </div>

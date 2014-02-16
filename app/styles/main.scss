@@ -97,7 +97,8 @@ body {
     float: left;
     margin: 3px;
     padding: 8px 8px 0 8px;
-
+    max-width: 100%;
+    word-wrap: break-word;
 }
 
 .haisyo-list {
