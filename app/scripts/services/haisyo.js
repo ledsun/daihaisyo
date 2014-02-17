@@ -8,6 +8,11 @@ angular.module('daihaisyoApp')
         url: '/api/haisyos/new',
         isArray: true
       },
+      before: {
+        method: 'GET',
+        url: '/api/haisyos/before',
+        isArray: true
+      },
       all: {
         method: 'GET',
         url: '/api/haisyos/all',
