@@ -1,5 +1,5 @@
-<div ng-include="'partials/navbar'"></div>
-<div class="jumbotron">
+<!--<div class="row" ng-include="'partials/navbar'"></div>-->
+<div class="row jumbotron">
   <h1>拝承！拝承！</h1>
   <p class="lead">
     <img src="images/hitachi-tree-300.png" alt="I'm Yeoman"><br>
@@ -10,7 +10,7 @@
   </form>
 </div>
 
-<div class="row marketing">
+<div class="row">
   <div class="haisyo-list" ng-repeat="haisyo in haisyos">
     <div class="haisyo">
       <p>{{haisyo.user}}様</p>
@@ -18,16 +18,19 @@
     </div>
   </div>
 </div>
-<p class="row">
-  <a class="pull-right btn btn-primary" ng-click="moreHaisyo()" ng-show="!hideMoreHaisyo" href="#">過去の拝承！</a>
-  <spnan class="pull-right" ng-show="showLast">おしまい</span>
+<div class="row">
+  <p class="text-center top-buffer">
+    <a class="btn btn-lg btn-primary" ng-click="moreHaisyo()" ng-show="!hideMoreHaisyo" href="#">過去の拝承！</a>
+    <spnan class="pull-right" ng-show="showLast">おしまい</span>
+  </p>
   <div class="progress progress-striped active" ng-show="showLoading">
     <div class="progress-bar progress-bar-success" style="width: 40%"></div>
     <span class="pull-right text-success">拝承！</span>
   </div>
-</p>
+</div>
+<p></P>
 
-<div class="footer">
+<div class="row footer">
   <p>これは｢大承認｣より「大拝承」の方が字面がかっこいいというだけの理由で作ったジョークアプリケーションです。日立製作所様および<a href="http://daishonin.hatelabo.jp/" target="_blank">大承認</a>様とは一切関係がございません。</p>
   <p>拝承については<a href="http://dic.nicovideo.jp/a/%E6%8B%9D%E6%89%BF" target="_blank">こちら</a>をご覧ください。</p>
 </div>
