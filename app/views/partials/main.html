@@ -2,7 +2,8 @@
 <div class="row jumbotron">
   <h1>拝承！拝承！</h1>
   <p class="lead">
-    <img src="images/hitachi-tree-300.png" alt="I'm Yeoman"><br>
+    <img src="images/hitachi-tree-300.png" alt="あの木画像"><br>
+    現在{{count}}拝承いたしております。<br>
     謹んで承りたき議、何なりとお申し付けください。
   </p>
   <form ng-submit="doHaisyo()">
@@ -21,7 +22,10 @@
 <div class="row">
   <p class="text-center top-buffer">
     <a class="btn btn-lg btn-primary" ng-click="moreHaisyo()" ng-show="!hideMoreHaisyo" href="#">過去の拝承！</a>
-    <spnan class="pull-right" ng-show="showLast">おしまい</span>
+  </p>
+  <p class="text-center">
+    <span ng-show="!hideMoreHaisyo">残り{{backlogCount}}拝承ございます。</span>
+    <span ng-show="showLast">すべて拝承いたしました。</span>
   </p>
   <div class="progress progress-striped active" ng-show="showLoading">
     <div class="progress-bar progress-bar-success" style="width: 40%"></div>

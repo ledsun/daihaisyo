@@ -12,11 +12,6 @@ angular.module('daihaisyoApp')
         method: 'GET',
         url: '/api/haisyos/before',
         isArray: true
-      },
-      all: {
-        method: 'GET',
-        url: '/api/haisyos/all',
-        isArray: true
       }
     });
   });
