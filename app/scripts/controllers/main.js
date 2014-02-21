@@ -33,7 +33,6 @@ angular.module('daihaisyoApp')
 		$scope.doHaisyo = function() {
 			if ($scope.content) {
 				Haisyo.save({
-						user: '名無し',
 						content: $scope.content
 					},
 					function(haisyo) {

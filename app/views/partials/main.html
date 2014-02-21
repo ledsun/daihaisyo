@@ -1,6 +1,5 @@
-<!--<div class="row" ng-include="'partials/navbar'"></div>-->
 <div class="row jumbotron">
-  <h1>拝承！拝承！</h1>
+  <h1>大拝承</h1>
   <p class="lead">
     <img src="images/hitachi-tree-300.png" alt="あの木画像"><br>
     現在{{count}}拝承いたしております。<br>
@@ -14,8 +13,7 @@
 <div class="row">
   <div class="haisyo-list" ng-repeat="haisyo in haisyos">
     <div class="haisyo">
-      <p>{{haisyo.user}}様</p>
-      <p>{{haisyo.content | limitTo:1600 }} の件、拝承いたしました。</p>
+      <p>{{haisyo.content | limitTo:1600 }}</p>
     </div>
   </div>
 </div>

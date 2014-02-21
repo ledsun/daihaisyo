@@ -2,13 +2,6 @@ $icon-font-path: "/bower_components/sass-bootstrap/fonts/";
 
 @import 'sass-bootstrap/lib/bootstrap';
 
-.browsehappy {
-    margin: 0.2em 0;
-    background: #ccc;
-    color: #000;
-    padding: 0.2em 0;
-}
-
 /* Space out content a bit */
 body {
     padding-top: 20px;
@@ -16,24 +9,9 @@ body {
 }
 
 /* Everything but the jumbotron gets side spacing for mobile first views */
-.header,
-.marketing,
 .footer {
     padding-left: 15px;
     padding-right: 15px;
-}
-
-/* Custom page header */
-.header {
-    border-bottom: 1px solid #e5e5e5;
-}
-
-/* Make the masthead heading the same height as the navigation */
-.header h3 {
-    margin-top: 0;
-    margin-bottom: 0;
-    line-height: 40px;
-    padding-bottom: 19px;
 }
 
 /* Custom page footer */
@@ -43,28 +21,19 @@ body {
     border-top: 1px solid #e5e5e5;
 }
 
-.container-narrow > hr {
-    margin: 30px 0;
-}
-
 /* Main marketing message and sign up button */
 .jumbotron {
     text-align: center;
     border-bottom: 1px solid #e5e5e5;
 }
 
+.jumbotron input[type="text"] {
+    width: 100%;
+}
+
 .jumbotron .btn {
     font-size: 21px;
     padding: 14px 24px;
-}
-
-/* Supporting marketing content */
-.marketing {
-    margin: 40px 0;
-}
-
-.marketing p + h4 {
-    margin-top: 28px;
 }
 
 /* Responsive: Portrait tablets and up */
@@ -74,22 +43,20 @@ body {
     }
 
     /* Remove the padding we set earlier */
-    .header,
-    .marketing,
     .footer {
         padding-left: 0;
         padding-right: 0;
-    }
-    /* Space out the masthead */
-    .header {
-        margin-bottom: 30px;
     }
     /* Remove the bottom border on the jumbotron for visual effect */
     .jumbotron {
         border-bottom: 0;
     }
+    .jumbotron input[type="text"] {
+        width: 80%;
+    }
 }
 
+/* 1280ディスプレイでの最大表示用 */
 @media screen and (min-width: 1280px) {
     .container {
         max-width: 1250px;
@@ -98,13 +65,17 @@ body {
 
 .haisyo {
     background-color: #eee;
-    border-radius: 6px;
+    border: 1px solid #efe;
+    border-radius: 12px;
     display: inline-block;
     float: left;
-    margin: 3px;
-    padding: 8px 8px 0 8px;
-    max-width: 98%;
+    margin: 3px 3px 3px 0;
+    padding: 10px 16px 0 16px;
+    max-width: 100%;
     word-wrap: break-word;
+    p:after{
+        content: ' の件、拝承いたしました。';
+    }
 }
 
 .haisyo-list {
@@ -123,6 +94,40 @@ body {
     }
 }
 
+/* 拝承に順序があるように見せるため、先頭二つを必ず縦にならべます。 */
+.haisyo-list:nth-child(1){
+    .haisyo{
+        border-radius: 16px;
+        font-size: 200%;
+        line-height: 200%;
+        width: 100%;
+    }
+}
+.haisyo-list:nth-child(2){
+    .haisyo{
+        font-size: 150%;
+        line-height: 150%;
+        width: 90%;
+    }
+}
+
+/* 拝承の末尾の文字を徐々に薄くします。 */
+.haisyo-list:nth-last-child(3) .haisyo{
+    color: #666;
+}
+.haisyo-list:nth-last-child(2) .haisyo{
+    color: #999;
+}
+.haisyo-list:nth-last-child(1) .haisyo{
+    color: #bbb;
+}
+
+/* 過去の拝承ボタンのオフセット用 */
 .top-buffer {
     margin-top:20px;
+}
+
+/* あの木の角丸 */
+.lead img {
+    border-radius: 3px;
 }
