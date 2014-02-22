@@ -1,9 +1,9 @@
 'use strict';
 
 var express = require('express'),
-    path = require('path'),
-    fs = require('fs'),
-    mongoose = require('mongoose');
+	path = require('path'),
+	fs = require('fs'),
+	mongoose = require('mongoose');
 
 /**
  * Main application file
@@ -20,8 +20,8 @@ var db = mongoose.connect(config.mongo.uri, config.mongo.options);
 
 // Bootstrap models
 var modelsPath = path.join(__dirname, 'lib/models');
-fs.readdirSync(modelsPath).forEach(function (file) {
-  require(modelsPath + '/' + file);
+fs.readdirSync(modelsPath).forEach(function(file) {
+	require(modelsPath + '/' + file);
 });
 
 // Populate empty DB with sample data
@@ -36,9 +36,12 @@ require('./lib/config/express')(app);
 require('./lib/routes')(app);
 
 // Start server
-app.listen(config.port, function () {
-  console.log('Express server listening on port %d in %s mode', config.port, app.get('env'));
+var server = app.listen(config.port, function() {
+	console.log('Express server listening on port %d in %s mode', config.port, app.get('env'));
 });
+
+// socket.ioでlisten
+app.io = require('socket.io').listen(server);
 
 // Expose app
 exports = module.exports = app;

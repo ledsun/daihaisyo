@@ -6,6 +6,11 @@ $icon-font-path: "/bower_components/sass-bootstrap/fonts/";
 body {
     padding-top: 20px;
     padding-bottom: 20px;
+    font-family: "Times New Roman", "游明朝", YuMincho, "Hiragino Mincho ProN", Meiryo, serif;
+}
+
+h1 {
+    font-family: "Times New Roman", "游明朝", YuMincho, "Hiragino Mincho ProN", Meiryo, serif;  
 }
 
 /* Everything but the jumbotron gets side spacing for mobile first views */
@@ -53,6 +58,7 @@ body {
     }
     .jumbotron input[type="text"] {
         width: 80%;
+        vertical-align: middle;
     }
 }
 
@@ -130,4 +136,5 @@ body {
 /* あの木の角丸 */
 .lead img {
     border-radius: 3px;
+    padding-bottom: 15px;
 }

@@ -10,7 +10,7 @@ angular.module('daihaisyoApp')
       restrict: 'A',
       link: function(scope, $elm, attrs) {
         $elm.on(attrs.scrollOn, function() {
-          $('html').animate({
+          angular.element('html').animate({
             scrollTop: $elm.offset().top
           }, 'slow');
         });

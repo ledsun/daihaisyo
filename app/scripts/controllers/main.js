@@ -2,73 +2,82 @@
 
 angular.module('daihaisyoApp')
 	.controller('MainCtrl', function($scope, $http, Haisyo, $timeout) {
-		// 残り件数を取得
-		var checkBacklog = function() {
-			$http.get('/api/haisyos/backlog_count', {
-				params: {
-					'_id': $scope.haisyos[$scope.haisyos.length - 1]._id
-				}
-			}).success(function(count) {
-				$scope.backlogCount = count;
-				if (count === '0') {
-					$scope.hideMoreHaisyo = true;
-					$scope.showLast = true;
-				}
-			});
-		}
+		// モデルを拡張する
+		$scope.model = {
+			setHaisyos: function(haisyos) {
+				$scope.model.haisyos = haisyos;
+			},
+			getLastHaisyo: function() {
+				return $scope.model.haisyos[$scope.model.haisyos.length - 1];
+			},
+			unshift: function(hasiyo) {
+				$scope.$apply(function() {
+					$scope.model.haisyos.unshift(hasiyo);
+				});
+			},
+			push: function(haisyo) {
+				$scope.model.haisyos.push(haisyo);
+			},
+			updateBacklogCount: function() {
+				Haisyo.checkBacklog($scope.model.getLastHaisyo()._id, function(count) {
+					$scope.model.backlogCount = count;
+					if (count === '0') {
+						$scope.model.hideMoreHaisyo = true;
+						$scope.model.showLast = true;
+					}
+				});
+			}
+		};
 
-		// 総拝承数を取得
-		$scope.count = 0;
-		$http.get('/api/haisyos/count').success(function(count) {
-			$scope.count = count;
+		// socket.ioの受信準備
+		io.connect(location.hostname).on('new_haisyo', function(msg) {
+			// 追加された拝承を画面に追加
+			$scope.model.unshift(msg.value);
 		});
 
 		// 最新の拝承を取得
 		Haisyo.recent(function(haisyos) {
-			$scope.haisyos = haisyos;
-			checkBacklog();
+			$scope.model.setHaisyos(haisyos);
+			$scope.model.updateBacklogCount();
 		});
 
 		// 拝承処理
 		$scope.doHaisyo = function() {
-			if ($scope.content) {
+			if ($scope.model.content) {
 				Haisyo.save({
-						content: $scope.content
+						content: $scope.model.content
 					},
-					function(haisyo) {
-						$scope.haisyos.splice(0, 0, haisyo);
-						$scope.content = '';
-						$scope.count++;
+					function() {
+						$scope.model.content = '';
 					});
 			}
 		};
 
 		// 過去の拝承を取得
 		$scope.moreHaisyo = function() {
-			$scope.showLoading = true;
-			$scope.hideMoreHaisyo = true;
+			$scope.model.showLoading = true;
+			$scope.model.hideMoreHaisyo = true;
 
-			Haisyo.before($scope.haisyos[$scope.haisyos.length - 1], function(haisyos) {
-				$scope.showLoading = false;
+			Haisyo.before($scope.model.getLastHaisyo(), function(haisyos) {
+				$scope.model.showLoading = false;
 
 				if (haisyos.length !== 0) {
 					// 取得した拝承を一つずつレンダリング
 					(function countUp() {
 						var haisyo = haisyos.shift();
 
-						$scope.haisyos.push(haisyo);
+						$scope.model.push(haisyo);
 
 						if (haisyos.length > 0) {
 							$timeout(countUp, 200);
 						} else {
-							$scope.hideMoreHaisyo = false;
+							$scope.model.hideMoreHaisyo = false;
 
 							//残り拝承数を確認します
-							checkBacklog();
+							$scope.model.updateBacklogCount();
 						}
 					})();
 				}
 			});
-
 		};
 	});
