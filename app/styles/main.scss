@@ -32,6 +32,10 @@ h1 {
     border-bottom: 1px solid #e5e5e5;
 }
 
+.jumbotron img {
+    margin-bottom:20px;    
+}
+
 .jumbotron input[type="text"] {
     width: 100%;
 }
@@ -39,34 +43,6 @@ h1 {
 .jumbotron .btn {
     font-size: 21px;
     padding: 14px 24px;
-}
-
-/* Responsive: Portrait tablets and up */
-@media screen and (min-width: 768px) {
-    .container {
-        max-width: 730px;
-    }
-
-    /* Remove the padding we set earlier */
-    .footer {
-        padding-left: 0;
-        padding-right: 0;
-    }
-    /* Remove the bottom border on the jumbotron for visual effect */
-    .jumbotron {
-        border-bottom: 0;
-    }
-    .jumbotron input[type="text"] {
-        width: 80%;
-        vertical-align: middle;
-    }
-}
-
-/* 1280ディスプレイでの最大表示用 */
-@media screen and (min-width: 1280px) {
-    .container {
-        max-width: 1250px;
-    }
 }
 
 .haisyo {
@@ -113,7 +89,7 @@ h1 {
     .haisyo{
         font-size: 150%;
         line-height: 150%;
-        width: 90%;
+        width: 100%;
     }
 }
 
@@ -137,4 +113,47 @@ h1 {
 .lead img {
     border-radius: 3px;
     padding-bottom: 15px;
+}
+
+/* Responsive: Portrait tablets and up */
+@media screen and (min-width: 768px) {
+    .container {
+        max-width: 730px;
+    }
+
+    /* Remove the padding we set earlier */
+    .footer {
+        padding-left: 0;
+        padding-right: 0;
+    }
+    /* Remove the bottom border on the jumbotron for visual effect */
+    .jumbotron {
+        border-bottom: 0;
+    }
+    .jumbotron input[type="text"] {
+        width: 80%;
+        vertical-align: middle;
+    }
+
+    /* 画面が大きいときは2番目以降を少し短くする */
+    .haisyo-list:nth-child(2){
+        .haisyo{
+            width: 98%;
+        }
+    }
+     .haisyo-list:nth-child(n+3){
+        .haisyo{
+            max-width: 98%;
+        }
+    }
+ }
+
+/* 1280ディスプレイでの最大表示用 */
+@media screen and (min-width: 1280px) {
+    .container {
+        max-width: 1250px;
+    }
+    .jumbotron img {
+        float: left;    
+    }
 }
