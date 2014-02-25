@@ -12,6 +12,11 @@ angular.module('daihaisyoApp')
         method: 'GET',
         url: '/api/haisyos/before',
         isArray: true
+      },
+      after: {
+        method: 'GET',
+        url: '/api/haisyos/after',
+        isArray: true
       }
     }), {
       checkBacklog: function(id, success) {

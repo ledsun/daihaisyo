@@ -24,6 +24,9 @@ h1 {
     padding-top: 19px;
     color: #777;
     border-top: 1px solid #e5e5e5;
+    .debug-log {
+        color: #ccc;
+    }
 }
 
 /* Main marketing message and sign up button */
@@ -113,6 +116,11 @@ h1 {
 .lead img {
     border-radius: 3px;
     padding-bottom: 15px;
+}
+
+.posting {
+    background-color: #FDD;
+    transition: all 0.1s ease 0;
 }
 
 /* Responsive: Portrait tablets and up */
