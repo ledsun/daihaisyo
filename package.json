@@ -8,7 +8,7 @@
     "mongoose-unique-validator": "~0.3.0",
     "connect-mongo": "~0.4.0",
     "ejs": "~0.8.4",
-    "socket.io": "~0.9.16"
+    "socket.io": "^1.0.6"
   },
   "devDependencies": {
     "grunt": "~0.4.1",

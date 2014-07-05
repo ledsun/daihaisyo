@@ -41,7 +41,7 @@ var server = app.listen(config.port, function() {
 });
 
 // socket.ioでlisten
-app.io = require('socket.io').listen(server);
+app.io = require('socket.io')(server);
 
 // Expose app
 exports = module.exports = app;
